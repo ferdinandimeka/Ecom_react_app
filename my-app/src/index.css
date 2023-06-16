@@ -1,0 +1,17 @@
+main{
+  min-height: 80vh;
+}
+
+.fit {
+  width: 600px;
+  height: 450px;
+}
+
+#fitted {
+  /* width: 600px; */
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
