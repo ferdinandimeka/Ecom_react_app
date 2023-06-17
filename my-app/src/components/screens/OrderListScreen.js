@@ -57,7 +57,7 @@ function OrderListScreen() {
                         <tr key={order._id}>
                             <td>{order._id}</td>
                             <td>{order.User && order.User.name}</td>
-                            <td>{order.createdAt.substring(0, 10)}</td>
+                            <td>{order.createdAt && String(order.createdAt).substring(0, 10)}</td>
                             <td>${order.totalPrice}</td>
                             <td>
                                 {order.isPaid ? (
