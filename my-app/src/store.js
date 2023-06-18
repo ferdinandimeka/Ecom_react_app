@@ -16,7 +16,7 @@ import { userProfileReducers, userListReducer } from './reducers/userReducers'
 import { userUpdateProfileReducers } from './reducers/userReducers'
 import { orderMakeReducer, orderDetailsReducer, orderPayReducer, 
         orderDeliverReducer, orderListReducer, 
-        orderAllListReducer } from './reducers/orderReducers'
+        orderAllListReducer, orderDeleteReducer } from './reducers/orderReducers'
 //const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
@@ -41,6 +41,7 @@ const reducer = combineReducers({
     orderDeliver: orderDeliverReducer,
     orderList: orderListReducer,
     orderListAll: orderAllListReducer,
+    orderDelete: orderDeleteReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? 

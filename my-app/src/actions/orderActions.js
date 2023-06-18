@@ -3,7 +3,8 @@ import { ORDER_DETAILS_FAIL, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS,
 ORDER_MAKE_FAIL, ORDER_MAKE_REQUEST, ORDER_MAKE_SUCCESS, ORDER_PAY_REQUEST,
 ORDER_PAY_FAIL, ORDER_PAY_SUCCESS, ORDER_DELIVER_FAIL, ORDER_DELIVER_REQUEST,
 ORDER_DELIVER_SUCCESS, ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL,
-ORDER_ALL_LIST_REQUEST, ORDER_ALL_LIST_SUCCESS, ORDER_ALL_LIST_FAIL } 
+ORDER_ALL_LIST_REQUEST, ORDER_ALL_LIST_SUCCESS, ORDER_ALL_LIST_FAIL,
+ORDER_DELETE_FAIL, ORDER_DELETE_REQUEST, ORDER_DELETE_SUCCESS } 
 from '../constants/orderConstant'
 import { CART_CLEAR_ITEMS } from '../constants/cartConstants'
 
@@ -237,6 +238,46 @@ export const listAllOrders = () => async(dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: ORDER_ALL_LIST_FAIL,
+            payload: error.response && error.response.data.detail
+            ? error.response.data.detail
+            : error.message
+        })
+    }
+}
+
+/** Used in deleting order in OrderListScreen */
+export const deleteOrder = (id) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: ORDER_DELETE_REQUEST,
+        })
+
+        // Getting the current user
+        const {
+            userLogin: { userInfo }
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        }
+
+        /** Api call to delete order */
+        const { data } = await axios.delete(`/api/orders/${id}/delete/`, config)
+
+        // if successful dispatch to the reducer
+        dispatch({
+            type: ORDER_DELETE_SUCCESS,
+            payload: data
+        })
+
+        
+
+    } catch (error) {
+        dispatch({
+            type: ORDER_DELETE_FAIL,
             payload: error.response && error.response.data.detail
             ? error.response.data.detail
             : error.message

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
-import { listAllOrders } from '../../actions/orderActions'
+import { listAllOrders, deleteOrder } from '../../actions/orderActions'
 import { Table, Button } from 'react-bootstrap'
 import Message from '../Message'
 import Loader from '../Loader'
@@ -21,6 +21,11 @@ function OrderListScreen() {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
+    const orderDelete = useSelector((state) => state.orderDelete)
+    const {
+        success: successDelete,
+    } = orderDelete
+
     useEffect(() => {
         // restricted for users, only for admin
         if (userInfo && userInfo.isAdmin) {
@@ -28,11 +33,24 @@ function OrderListScreen() {
         } else {
             history('/login')
         }
-    }, [dispatch, history, userInfo])
+        
+        // Updates the orders state
+        if (successDelete) {
+            dispatch(listAllOrders())
+        }
+
+    }, [dispatch, history, successDelete, userInfo])
+
+    /* HANDLER */
+    const deleteHandler = (id) => {
+        if (window.confirm("Are you sure you want to delete this order ?")) {
+        dispatch(deleteOrder(id));
+        }
+    };
 
   return (
     <div>
-        <h1>orders</h1>
+        <h1>Orders</h1>
 
         {loading ? (
             <Loader />
@@ -79,6 +97,14 @@ function OrderListScreen() {
                                         Details
                                     </Button>
                                 </LinkContainer>
+
+                                <Button
+                                    variant='danger'
+                                    className='btn-sm'
+                                    onClick={() => deleteHandler(order._id)}
+                                >
+                                    <i className='fas fa-trash'></i>
+                                </Button>
                             </td>
 
                         </tr>

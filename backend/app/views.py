@@ -271,6 +271,13 @@ def getOrders(request):
     serializer = OrderSerializer(orders, many=True)
     return Response(serializer.data)
 
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def deleteOrder(request, pk):
+    order = Order.objects.get(_id=pk)
+    order.delete()
+    return Response('Order deleted successfully')
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getMyOrders(request):
