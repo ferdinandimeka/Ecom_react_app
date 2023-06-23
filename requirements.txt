@@ -1,0 +1,38 @@
+asgiref==3.4.1 # its a package for enabling asynchronous request handling and implement 
+               # the ASGI specification.
+Django==3.2.6 # Backend framework
+django-cors-headers==3.7.0 # The django-cors-headers package is a Django library that helps
+                           # in handling Cross-Origin Resource Sharing (CORS) headers in 
+                           # Django web applications.
+djangorestframework==3.12.4 # djangorestframework is a powerful and popular third-party 
+                            # package for building Web APIs in Django. It provides a set 
+                            # of tools and utilities that make it easier to develop robust
+                            # and flexible APIs in Django.
+djangorestframework-simplejwt==4.7.2 # djangorestframework-simplejwt is a third-party 
+                                    # package that provides JSON Web Token (JWT) 
+                                    # authentication for Django REST Framework.
+gunicorn==20.1.0 # gunicorn is a Python Web Server Gateway Interface (WSGI) HTTP server. 
+                # It is designed to be a production-ready server for running Python web 
+                # applications, including those built with frameworks like Django or Flask.
+Pillow==8.3.1 # Pillow is a powerful Python library for handling images. It is a fork 
+            # of the Python Imaging Library (PIL) and provides an easy-to-use API for 
+            # opening, manipulating, and saving various image file formats.
+psycopg2==2.9.1 # psycopg2 is a PostgreSQL adapter for Python. It allows Python programs 
+                # to connect to PostgreSQL databases and interact with them using the 
+                # Python Database API (PEP 249) interface.
+PyJWT==2.1.0 # PyJWT is a Python library for JSON Web Tokens (JWT). JWT is a compact, 
+            # URL-safe means of representing claims between two parties. It is commonly 
+            # used for authentication and authorization purposes in web applications.
+pytz==2021.1 # pytz is a Python library that provides functionality for working with 
+            # time zones. It allows you to handle and manipulate time zone information, 
+            #convert time between different time zones, and perform various operations 
+            # related to time zone-aware datetime objects.
+sqlparse==0.4.1 # sqlparse is a Python library that provides parsing, formatting, and 
+                # analyzing functionality for SQL queries. It is primarily used for 
+                # working with SQL code and is often used in database-related applications,
+                # such as query builders, code editors, and database management tools.
+whitenoise==5.3.0 # whitenoise is a Python library that provides static file serving 
+                # for web applications in a Django project. It is commonly used to 
+                # efficiently serve static files, such as CSS, JavaScript, and images, 
+                # directly from the web server, improving performance and reducing the 
+                # load on the Django application.
