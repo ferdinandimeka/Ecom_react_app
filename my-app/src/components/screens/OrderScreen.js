@@ -31,6 +31,7 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { PRODUCT_DETAILS_SUCCESS } from "../../constants/productConstants";
 
 function OrderScreen() {
 
@@ -99,6 +100,11 @@ function OrderScreen() {
                 setSdkReady(true);
             }
         }
+
+        dispatch({
+            type: PRODUCT_DETAILS_SUCCESS
+        })
+
     },[dispatch, order, order_Id, successPay, successDeliver, history, userInfo]);
 
     /** HANDLERS */

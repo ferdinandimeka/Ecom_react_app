@@ -81,6 +81,11 @@ function ProductEditScreen() {
 
     const uploadFileHandler = async(event) => {
         const file = event.target.files[0]
+
+        if (file) {
+            setImage(URL.createObjectURL(file))
+        }
+
         const formData = new FormData()
 
         formData.append('image', file)
@@ -158,9 +163,11 @@ function ProductEditScreen() {
                             type='file'
                             accept='.jpg,.jpeg,.png'
                             onChange={uploadFileHandler} 
+                            className='mb-2'
                         />
 
                         {uploading && <Loader />}
+                        {image && <img src={image} alt='preview' className='img-fluid mt-2' />}
                     </Form.Group>
 
                     <Form.Group controlId='brand'>

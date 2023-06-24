@@ -49,7 +49,7 @@ def getProducts(request):
     products = Product.objects.filter(name__icontains = query).order_by('-_id')
 
     page = request.query_params.get('page')
-    paginator = Paginator(products, 8)
+    paginator = Paginator(products, 10)
 
     try:
         products = paginator.page(page)
@@ -307,7 +307,7 @@ def createProduct(request):
         brand='Sample Brand',
         countInStock = 0,
         category="Sample category",
-        description=""
+        description="",
     )
 
     serializer = ProductSerializer(product, many=False)

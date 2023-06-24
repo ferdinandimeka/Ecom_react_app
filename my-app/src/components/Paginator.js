@@ -17,17 +17,17 @@ function Paginator({ page, pages, keyword = '', isAdmin = false }) {
   return (
     pages > 1 && (
         <Pagination>
-            {[...Array(pages).keys()].map((x) => (
-                <LinkContainer
-                    key={x + 1}
-                    to={
-                        !isAdmin ? `/?keyword=${keyword}&page=${x + 1}`
-                        : `/admin/productlist//?keyword=${keyword}&page=${x + 1}`
-                    }
-                >
-                    <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
-                </LinkContainer>
-            ))}
+            {[...Array(pages).keys()].map((x) => {
+                const linkTo = !isAdmin
+                ? { pathname: '/', search: `?keyword=${keyword}&page=${x + 1}`}
+                : { pathname: '/productlist/', search: `?keyword=${keyword}&page=${x + 1}`}   
+                
+                return (
+                    <LinkContainer key={x + 1} to={linkTo}>
+                        <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
+                    </LinkContainer>
+                )
+            })}
         </Pagination>
     )
   )

@@ -52,7 +52,7 @@ function ProductListScreen() {
 
         // CHECK IF PRODUCT IS CREATED, THEN REIRECT TO EDIT PAGE
         if (successCreate) {
-            history(`/product/${createdProduct.id}/edit`)
+            history(`/product/${createdProduct._id}/edit`)
         } else {
             dispatch(listProducts(keyword))
         }
@@ -67,7 +67,7 @@ function ProductListScreen() {
         }
     }
 
-    const createProductHandler =() => {
+    const createProductHandler = () => {
         dispatch(createProduct())
     }
 

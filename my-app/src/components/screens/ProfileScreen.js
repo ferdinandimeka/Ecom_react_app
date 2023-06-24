@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { getProfile, updateProfile } from '../../actions/userActions'
 import { LinkContainer } from 'react-router-bootstrap'
+import { listMyOrders } from '../../actions/orderActions'
 
 function ProfileScreen() {
     /* states */
@@ -46,6 +47,9 @@ function ProfileScreen() {
 
                 // fetching user data
                 dispatch(getProfile('profile'))
+
+                // Fettching the user order details
+                dispatch(listMyOrders())
             } else {
                 // we have the userInfo, so we can show the profile
                 setName(user.name)
