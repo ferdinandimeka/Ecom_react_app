@@ -61,7 +61,7 @@ export default function PlaceOrderScreen() {
         })
       }
       // disable next line
-    }, [success, history])
+    }, [success, history, dispatch, order._id])
 
     /** Handler */
     const placeOrder = () => {
