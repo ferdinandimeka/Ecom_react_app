@@ -53,5 +53,7 @@
     "eslint": "^8.44.0",
     "gh-pages": "^5.0.0",
     "redux-devtools-extension": "^2.13.9"
-  }
+  },
+
+  "homepage": "https://ferdinandimeka.github.io/Ecom_react_app"
 }
