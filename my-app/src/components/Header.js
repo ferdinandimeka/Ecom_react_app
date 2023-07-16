@@ -24,16 +24,18 @@ function Header() {
       <Navbar bg="light" variant="light" expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Ferdy Shop</Navbar.Brand>
+            <Navbar.Brand>LunaBay</Navbar.Brand>
           </LinkContainer>
-            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Toggle aria-controls="navbarScroll" 
+              style={{outline: 'none'}} 
+            />
             <Navbar.Collapse id="navbarScroll">
 
               <SearchBox />
 
               <Nav
                 className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' }}
+                // style={{ maxHeight: '100px' }}
                 navbarScroll
               >
                 <LinkContainer to="/">
