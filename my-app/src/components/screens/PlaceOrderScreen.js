@@ -61,7 +61,8 @@ export default function PlaceOrderScreen() {
         })
       }
       // disable next line
-    }, [success, history, dispatch, order._id])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [success, history])
 
     /** Handler */
     const placeOrder = () => {

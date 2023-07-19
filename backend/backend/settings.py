@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8+ca2==zhq_-o_vx&#s@f%68d(4xkrnb!#kn9-5)(k-yi-c3n6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 from datetime import timedelta
@@ -110,7 +111,9 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'my-app/build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -176,7 +179,8 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS=[
-    BASE_DIR / 'static'
+    BASE_DIR /'static',
+    BASE_DIR /'my-app/build/static'
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR ,"media")

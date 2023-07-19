@@ -6,10 +6,10 @@ function Footer() {
     <footer>
         <Container>
             <Row>
-                <Col className="text-center py-3">Copyrights @copy; ImekaFerdy</Col>
+                <Col className="text-center py-3">&copy; ImekaFerdy</Col>
             </Row>
         </Container>
-    </footer>
+    </footer>   
   )
 }
 

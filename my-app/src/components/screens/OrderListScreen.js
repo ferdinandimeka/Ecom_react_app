@@ -79,14 +79,14 @@ function OrderListScreen() {
                             <td>${order.totalPrice}</td>
                             <td>
                                 {order.isPaid ? (
-                                    order.paidAt.substring(0, 10)
+                                    order.paidAt && String(order.paidAt).substring(0, 10)
                                 ) : (
                                     <i className='fas fa-times' style={{ color: 'red' }}></i>
                                 )}
                             </td>
                             <td>
                                 {order.isDelivered ? (
-                                    order.deliveredAt.substring(0, 10)
+                                    order.deliveredAt && String(order.deliveredAt).substring(0, 10)
                                 ) : (
                                     <i className='fas fa-times' style={{ color: 'red' }}></i>
                                 )}
