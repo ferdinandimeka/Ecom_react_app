@@ -1,6 +1,6 @@
 asgiref==3.4.1 # its a package for enabling asynchronous request handling and implement 
                # the ASGI specification.
-Django==3.2.6 # Backend framework
+Django==3.2.20 # Backend framework
 django-cors-headers==3.7.0 # The django-cors-headers package is a Django library that helps
                            # in handling Cross-Origin Resource Sharing (CORS) headers in 
                            # Django web applications.
