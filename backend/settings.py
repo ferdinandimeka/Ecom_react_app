@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8+ca2==zhq_-o_vx&#s@f%68d(4xkrnb!#kn9-5)(k-yi-c3n6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['lunabay.onrender.com']
+ALLOWED_HOSTS = ['lunabay.onrender.com', '127.0.0.1:8000', 'localhost']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -75,6 +75,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from datetime import timedelta
 
