@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8+ca2==zhq_-o_vx&#s@f%68d(4xkrnb!#kn9-5)(k-yi-c3n6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['lunabay.onrender.com', '127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['lunabay.onrender.com', '127.0.0.1', 'localhost']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -180,7 +180,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = 'static/'
 
