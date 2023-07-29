@@ -36,6 +36,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
+    'render.apps.RenderConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -182,13 +183,13 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS=[
-    BASE_DIR /'static',
-    BASE_DIR /'my-app/build/static'
+    BASE_DIR/'static',
+    BASE_DIR/'my-app/build/static'
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR ,"media")
